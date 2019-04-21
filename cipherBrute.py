@@ -18,7 +18,7 @@ def rot5(x):                                                    # function takes
         output1 += chr(dec)                                     # each shifted character is concatenated togther and stored in a variable output1
 
     print(output1)
-
+                                                                # https://www.dotnetperls.com/rot13-python some code taken from here for this function
 def rot13(y):                                                   # Takes in text in the variable y
     output2 = " "
 
