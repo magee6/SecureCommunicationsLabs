@@ -51,7 +51,7 @@ def rot47(z):
 
         if all >= ord('!') and all <= ord('~'):
 
-            output3 += (chr(33 + ((all + 14) % 94)))
+            output3 += (chr(33 + ((all + 14) % 94)))            # subtracts 14 from cipher, mod 94, remainder added to 33 , character is the converted to character value.
 
         else:
             output3 += ord(i)
@@ -60,6 +60,18 @@ def rot47(z):
 
     print(output3)
 
+def bruteforce(k, cipher):
+
+    output4 = " "                                               # empty string which will hold the decoded cipher
+
+    for i in cipher:                                            # Iterates through the characters of the ciphertext and takes away the shift value
+        val = (ord(i) - k) % 126
+
+        if val < 32:                                            # if the integer value representing the character is less than 32, 95 is added.
+            val += 95
+        output4 += chr(val)                                     # integer values are converted to their respective characters and outputted to the variable output4
+
+    print(output4)
 
 if rot == 'dec':
     rot5(ciphertext)
@@ -67,6 +79,9 @@ elif rot == "alpha":
     rot13(ciphertext)
 elif rot == "all":
     rot47(ciphertext)
+elif rot == "brute":
+    for i in range(1, 95, 1):                                   #iterates from 1 to 95 in a step of 1. This is the shift key value
+        bruteforce(i, ciphertext)
 else:
     print("Please enter arguments 'dec'(rot5), 'alpha'(rot 13) or 'all'(rot 47) + ciphertext")
 

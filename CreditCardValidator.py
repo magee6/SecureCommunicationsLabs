@@ -37,8 +37,10 @@ def vendor_check(card_num):
             print("Card Vendor >>> Diners Club - Carte Blanche")
         elif card_num[0:2] == "36":
             print("Card Vendor >>> Diners Club - International")
-        elif card_num[0:2] == "54" or card_num[0:2] == "55":
-            print("Card Vendor >>> Diners Club - North America")
+        elif card_num[0:2] == "54":
+            print("Card Vendor >>> Diners Club - USA & Canada")
+        elif card_num[0:2] == "54":
+            print("Card Vendor >>> Diners Club - USA & Canada")
         elif card_num[0:4] == "6011":
             print("Card Vendor >>> Discover")
         elif card_num[0:3] == "637" or card_num[0:3] == "638" or card_num[0:3] == "639":
@@ -81,22 +83,7 @@ while retry:
         checksum(card_num)
 
     elif choice == "D" or choice == "d":
-        print("You chose >>> Vendor Check")
-        print("#############################################")
-        print("<<<<<< Choose Vendor to Generate Card >>>>>>")
-        print("A) Mastercard")
-        print("B) Visa")
-        print("C) Visa Electron")
-        print("D) American Express")
-        print("E) Diners Club - Carte Blanche")
-
-        print("F) Diners Club - International")
-        print("G) Diners Club - North America")
-        print("H) Discover")
-        print("I) Maestro")
-        print("#############################################")
-        card_num = str(input("Choose Vendor >>> "))
-        print("Generating...")
+        print("D")
     elif choice == "E" or choice == "e":
         print("Exiting...")
         retry = False
