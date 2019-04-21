@@ -1,45 +1,45 @@
 import sys
 
-rot = sys.argv[1]                                               # takes in second commandline argument as dec, alpha or all
-ciphertext = sys.argv[2]                                        # takes in the text to be encoded into the third argument
+rot = sys.argv[1]
+ciphertext = sys.argv[2]
 
-def rot5(x):                                                    # function takes in a text to be encoded in variable x as an argument.
+def rot5(x):
     output1 = " "
 
-    for i in x:                                                 # iterates through each digit which was passed into the function
-        dec = ord(i)                                            # dec is assigned to the integer representing the ascii character
+    for i in x:
+        dec = ord(i)
 
-        if dec >= ord('0') and dec <= ord('9'):                 # if the dec integer is greater than or equal to the 47 and less than 57
-            if dec <= ord('4'):                                 # if dec is less than or equal to 52, shift 5 characters forward
+        if dec >= ord('0') and dec <= ord('9'):
+            if dec <= ord('4'):
                 dec += 5
-            else:                                               # else shift 5 characters backwards
+            else:
                 dec -= 5
 
-        output1 += chr(dec)                                     # each shifted character is concatenated togther and stored in a variable output1
+        output1 += chr(dec)
 
     print(output1)
 
-def rot13(y):                                                   # Takes in text in the variable y
+def rot13(y):
     output2 = " "
 
-    for i in y:                                                 # Iterates through each character in the string which is passed into the function
-        alpha = ord(i)                                          # alpha is assigned to the returned integer of the Unicode character
+    for i in y:
+        alpha = ord(i)                                             #alpha is assigned to the returned integer of the Unicode character
 
-        if alpha >= ord('a') and alpha <= ord('z'):             # if alpha character is greater than or equal to ascii decimal value 97 AND less than or equal to ascii decimal 122
+        if alpha >= ord('a') and alpha <= ord('z'):               #if alpha is greater than or equal to ascii a AND less than or equal to ascii z
 
-            if alpha > ord('m'):                                # if character is  greater than ascii decinal 109, shift backward 13 characters
+            if alpha > ord('m'):                                   #if character is  greater than ascii m, go back 13 characters
                 alpha -= 13
             else:
-                alpha += 13                                     # otherwise go forward 13 characters
+                alpha += 13                                        #otherwise go forward 13 characters
 
-        elif alpha >= ord('A') and alpha <= ord('Z'):           # if alpha is greater than or equal to ascii decimal 65 AND less than or equal to ascii decimal 90
+        elif alpha >= ord('A') and alpha <= ord('Z'):             #if alpha is greater than or equal to ascii A AND less than or equal to ascii Z
 
-            if alpha > ord('M'):                                # if character in alpha is greater than ascii decimal value 77, go back 13 characters
+            if alpha > ord('M'):                                   #if character is  greater than ascii M, go back 13 characters
                 alpha -= 13
             else:
-                alpha += 13                                     # otherwise go forward 13 characters
+                alpha += 13                                        #otherwise go forward 13 characters
 
-        output2 += chr(alpha)                                   # returns and conncatanates the characters which represent the integer values in the ascii table to output2
+        output2 += chr(alpha)                                      #returns the string and is assigned to the output2 variable
     print(output2)
 
 def rot47(z):
